@@ -15,7 +15,16 @@ describe('LogowanieComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should enable the submit button when the form is valid', () => {
+    const component = fixture.componentInstance;
+    component.formData.username = 'validUsername';
+    component.formData.password = 'validPassword';
+  
+    fixture.detectChanges();
+  
+    const compiled = fixture.nativeElement;
+    const submitButton = compiled.querySelector('button[type="submit"]');
+    expect(submitButton.getAttribute('disabled')).toBeNull();
   });
+  
 });
