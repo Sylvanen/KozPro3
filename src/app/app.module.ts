@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LogowanieComponent } from './logowanie/logowanie.component';
 
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle' ;
 
 @NgModule({
   declarations: [
@@ -15,9 +17,12 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
