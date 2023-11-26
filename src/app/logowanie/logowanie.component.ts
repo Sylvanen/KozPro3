@@ -1,24 +1,36 @@
-import { Component } from "@angular/core";
-
-
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-logowanie',
   templateUrl: './logowanie.component.html',
   styleUrls: ['./logowanie.component.css']
 })
-export class LogowanieComponent {
+export class LogowanieComponent implements OnInit {
+  public title: string;
+
   formData = {
-    username: '', // Corrected property name
+    username: '',
     password: ''
-  };
+  }
+  router: any;
+  authService: any;
+
+  constructor() { 
+    this.title = 'Witaj na stronie logowania'
+  }
+
+  ngOnInit(): void {
+  }
 
   logowanie() {
-    if (this.formData.username === 'przykladowyUzytkownik' && this.formData.password === 'przykladoweHaslo') {
-      console.log('Zalogowano pomyślnie'); // Corrected Polish characters
+    if(this.formData.username === 'przykladowyUzytkownik' && this.formData.password === 'przykladoweHaslo') {
+      console.log('Zalogowano pomyślnie');
     } else {
-      console.log('Błąd logowania. Sprawdź dane'); // Corrected Polish characters
+      console.log('Błąd logowanie. Sprawdź dane.');
+
+
     }
+    this.authService.login();
+    this.router.navigate(['/dashboard']);
   }
 }
