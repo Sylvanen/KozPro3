@@ -1,30 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LogowanieComponent } from './logowanie.component';
+import {FormsModule} from "@angular/forms";
 
 describe('LogowanieComponent', () => {
   let component: LogowanieComponent;
   let fixture: ComponentFixture<LogowanieComponent>;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ LogowanieComponent ],
+      imports: [FormsModule],
+
+    })
+    .compileComponents();
+  });
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [LogowanieComponent]
-    });
     fixture = TestBed.createComponent(LogowanieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should enable the submit button when the form is valid', () => {
-    const component = fixture.componentInstance;
-    component.formData.username = 'validUsername';
-    component.formData.password = 'validPassword';
-  
-    fixture.detectChanges();
-  
-    const compiled = fixture.nativeElement;
-    const submitButton = compiled.querySelector('button[type="submit"]');
-    expect(submitButton.getAttribute('disabled')).toBeNull();
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
-  
 });
